@@ -1,0 +1,98 @@
+{%include 'userheader.html'%}
+
+	
+
+<div style=" background:url('/static/images/fly2.jpg') ; height: 300px; width: 100%; background-size: cover;"  >
+	</div>	
+	<center>
+		<form method="post" enctype="multipart/form-data" style="margin-top: 2rem;">
+
+		<table class="table" style="width:  500px;">
+			<h1>USER PORTAL</h1>
+			
+			<tr>
+				<th>PLACE</th>
+				<td><input type="text" required="" name="place" required="" class="form-control"></td>
+			</tr>
+			<tr>
+				<th>DESCRIPTION</th>
+				<td><input type="text" required="" name="desi" required="" class="form-control"></td>
+			</tr>
+			<tr>
+				<th>NO OF PEOPLE</th>
+				<td><input type="text" required="" name="people" required="" class="form-control"></td>
+
+			</tr>
+			<tr>
+		<th>No. of Days</th>
+		<td><input type="text" name="days" required class="form-control" value=""></td>
+		</tr>
+			<tr>
+				<th>MODE OF TRAVEL</th>
+				<td><input type="text" required="" name="travel"  required="" class="form-control"></td>
+			</tr>
+			<tr>
+				<th>PRICE</th>
+				<td><input type="text" required=""  name="price" required=""  class="form-control"></td>
+			</tr>
+			
+		<tr>
+			<td colspan="2" align="center"><input type="submit" name="submit" value="ADD" class="btn btn-primary"></td>
+		</tr>
+</table></form></center>
+
+	<center>	
+		<h1>PORTAL DETAILS ADDED </h1>
+		<table class="table" style="width: 500px;" >
+			<tr>
+				<th>SL.NO</th>
+				<th>Agent Name</th>
+				<th>Phone</th>
+				<th>Tour PLACE</th>
+				<th>DESCRIPTION</th>
+				<th>NO OF PEOPLE</th>
+				<th>MODE OF TRAVEL</th>
+				<th>PRICE</th>
+				<th>MODIFIED PRICE</th>
+				<th>NO.OF.DAYS</th>
+				<th>STATUS</th>
+			
+			</tr>
+			{% for row in data['user'] %}
+			<tr>
+				<td>{{loop.index}}</td>
+				<td>{{row['provider_name']}}</td>
+				<td>{{row['phone']}}</td>
+				<td>{{row['port_place']}}</td>
+				<td>{{row['port_desc']}}</td>
+				<td>{{row['port_people']}}</td>
+				<td>{{row['mode_of_travel']}}</td>
+				<td>{{row['port_price']}}</td>
+				<td>{{row['modified_price']}}</td>
+				<td>{{row['no_of_days']}}</td>
+				<td>{{row['status']}}</td>
+				{% if row ['status']=='modify' %}
+				<td><a  href="?action=accept&log_id={{row['portal_id']}}">Accept</a></td>
+				<td><a href="?action=reject&log_id={{row['portal_id']}}">Reject</a></td>
+				<!-- {% elif row ['status']=='accepted' %}
+				<td><a href="user_book_portel_package?log_id={{row['portal_id']}}">Reject</a></td> -->
+				
+
+				{% endif %}
+				<td><a href="user_book_packages?cid={{row['portal_id']}}&amt={{row['port_price']}}&pname ={{row['amount']}}" class="btn btn-primary">Book</a></td>
+
+				
+				
+				
+				
+			</tr>
+			{% endfor%}
+		</table>
+		
+		
+	
+		
+	</form>
+</center>
+
+{%include 'footer.html'%}

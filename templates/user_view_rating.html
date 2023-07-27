@@ -1,0 +1,31 @@
+{% include 'userheader.html' %}
+<div style=" background:url('/static/images/fly1.jpg') ; height: 300px; width: 100%; background-size: cover;"  >
+	</div>
+<center>
+<form method="post">
+	<h2>Review And Ratings</h2>
+	<table class="table table-striped table-hover" style="width: 1000px; background: wheat;">
+		<tr>
+			<th>#</th>
+			<th>Package Name</th>
+			<th>Customer Name</th>
+			<th>Rating</th>
+			<th>Review</th>
+			<th>Date</th>
+		</tr>
+		{% for i in data['view'] %}
+		<tr>
+			<td>{{loop.index}}</td>
+			<td>{{i['package_name']}}</td>
+			<td>{{i['first_name']}}</td>
+			<td>{{i['rating']}}</td>
+			<td>{{i['review']}}</td>
+			<td>{{i['datetime']}}</td>
+			
+			<td><a href="?action=request&lid={{i['login_id']}}&cid={{data['cid']}}" class="btn btn-info">Send Chat Request</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+</form>
+</center>
+{% include 'footer.html' %}

@@ -1,0 +1,135 @@
+{% include 'public_header.html' %}
+<div style=" background:url('/static/images/fly.jpg') ; height: 300px; width: 100%; background-size: cover;"  >
+	</div>
+
+<!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD3MPnSnyWwNmpnVEFkaddVvy_GWtxSejs&sensor=false"></script>
+    <script type="text/javascript">
+        // window.onload = function () {
+          function myFunction(){
+            var mapOptions = {
+                center: new google.maps.LatLng(9.9763482, 76.286272),
+                zoom: 14,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var infoWindow = new google.maps.InfoWindow();
+            var latlngbounds = new google.maps.LatLngBounds();
+            var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+            google.maps.event.addListener(map, 'click', function (e) {
+                alert("Latitude: " + e.latLng.lat() + "\r\nLongitude: " + e.latLng.lng());
+              document.getElementById('lat').value = e.latLng.lat();
+                document.getElementById('lon').value = e.latLng.lng();
+           
+
+            });
+        }
+    </script>
+<style type="text/css">
+</style> -->
+<center>
+<form method="post">
+	<h3>User Registration</h3>
+	<table class="table" style="width: 800px;">
+		<tr>
+			<th>First Name</th>
+			<td><input type="text" name="fname" required value="" class="form-control"></td>
+		</tr>
+		<tr>
+			<th>Last Name</th>
+			<td><input type="text" name="lname" required value="" class="form-control"></td>
+		</tr>
+		<tr>
+			<th>House Name</th>
+			<td><input type="text" name="hname" required value="" class="form-control"></td>
+		</tr>
+		<tr>
+			<th>Place</th>
+			<td><input type="text" name="place" required value="" class="form-control"></td>
+		</tr>
+		<tr>
+			<th>District</th>
+					<td><select name='district' required class="form-control">
+						<option value="">select</option>
+						<option>Thiruvanathapuram</option>
+						<option>Kollam</option>
+						<option>Pathanamthitta</option>
+						<option>Alappuzha</option>
+						<option>Kottayam</option>
+						<option>Idukki</option>
+						<option>Ernakulam</option>
+						<option>Trissur</option>
+						<option>Palakkad</option>
+						<option>Malapuram</option>
+						<option>Kozhikodu</option>
+						<option>Wayanad</option>
+						<option>Kannur</option>
+						<option>Kasargod</option>
+					</select></td>
+		</tr>
+		<tr>
+			<th>Country</th>
+			<td><input type="text" name="coun" required value="" class="form-control"></td>
+		</tr>
+		<tr>
+			<th>Pincode</th>
+			<td><input type="text" name="pincode" required pattern="[0-9]{6}" value="" class="form-control"></td>
+		</tr>
+		<tr>
+			<th>Phone</th>
+			<td><input type="text" name="phone" value="" pattern="[0-9]{10}" required title="number format"  class="form-control"></td>
+			</tr>
+		</tr>
+		<tr>
+			<th>Email</th>
+					<td><input type="email" name="email" value="" required class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
+					</td>
+		</tr>
+		<!-- <tr>
+			<th>Passport Number</th>
+			<td><input type="text" name="pnum" required value="" class="form-control"></td>
+		</tr> -->
+		<tr>
+			<th>Gender</th>
+			<td><input type="text" name="gen" required value="" class="form-control"></td>
+		</tr>
+		<tr>
+			<th>Date of Birth</th>
+			<td><input type="date" name="dob" max="2005-12-12" required value="" class="form-control"></td>
+		</tr>
+		<td>
+	<!--  <div id="dvMap" style="width: 500px; height: 400px;margin-top: 35em" ></div> -->
+
+	</td>
+		<!-- <tr>
+			<th>LATITUDE</th>
+			<td><input type="text" name="lat" required class="form-control" id="lat"><a onclick="myFunction();" class="btn btn-danger"><b>View Map</b></a></td>
+			
+		</tr> -->
+		
+		<!-- <tr>
+			<th>LOGITUDE</th>
+			<td><input type="taext" name="lon" required class="form-control" id="lon"></td>
+		</tr> -->
+		<tr>
+			<th>User Name</th>
+			<td><input type="text" name="username" value="" required class="form-control"></td>
+		</tr>
+		<tr>
+			<tr>
+					<th>Password</th>
+					<td><input type="Password" name="password" value="" id="password" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more characters" required> 
+			</td>
+
+			<!-- <td><input type="Password" name="password" value="" id="password" class="form-control"   required>  -->
+			</td>
+		</tr>
+		<tr>
+				<tr>
+					<td align="center" colspan="2"><input type="submit"  name="submit" value="Sign up" class="btn btn-outline-success" style="width: 150px;"></td>
+				</tr>
+		</tr>
+
+	</table>
+
+</form>
+</center>
+{% include 'footer.html' %}

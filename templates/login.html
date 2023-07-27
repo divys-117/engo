@@ -1,0 +1,31 @@
+
+{% include 'public_header.html' %}
+<div style=" background:url('/static/images/fly.jpg') ; height: 300px; width: 100%; background-size: cover;"  >
+	</div>
+
+<center>
+	<form id="login" method="post">
+			<table class="table table-borderless" style="width: 500px;">
+				<h2 class="p-3">Login Here</h2>
+			<tr>
+				<th>User Name</th>
+				<td><input type="text" name="username" value="" class="form-control" required ></td>
+			</tr>
+			<tr>
+				<th>Password</th>
+
+				<td><input type="Password" name="password" value="" required="" class="form-control" id="id_password" autocomplete="current-password" ></td>
+
+				<!-- <td><i class="fa-eye-slash far fa-eye" id="togglePassword" style="margin-left: -40px; cursor: pointer; position: relative; top:8px"></i></td> -->
+			</tr>
+			<td><a style="margin-left: 100px" href="Forgot_password">Forgot Password??</a></td>
+			<tr>
+				<td align="center" colspan="2"><input type="submit" name="submit" value="Login" class="btn btn-outline-success" style="width: 150px;"></td>
+			</tr>
+
+			</table>
+			</form>
+			</center>
+
+{% include 'footer.html' %}
+

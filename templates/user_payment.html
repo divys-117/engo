@@ -1,0 +1,38 @@
+{% include 'userheader.html' %}
+<div style=" background:url('/static/images/fly1.jpg') ; height: 300px; width: 100%; background-size: cover;"  >
+	</div>
+<form method="post">
+	<table>
+		<tr>
+			<th>Card no.</th>
+			<td><input type="text" name="cardno" pattern="[0-9]{16}"required=""></td>
+		</tr>   
+		<tr>
+			<th>Cvv</th>
+			<td><input type="text" name="cvv" pattern="[0-9]{3}" required="" ></td>
+		</tr>
+		<tr>
+			<th>Cardholder name</th>
+			<td><input type="text" name="name" required="" ></td>
+		</tr>
+		<tr>
+			<th>Expiry date</th>
+			<td><input type="date" name="date" required="" ></td>
+		</tr>
+	<tr>
+		<th>Amount</th>
+		<td><input type="text" name="amt" value="{{data['amt']}}" required="" readonly="" ></td>
+
+	</tr>
+		<tr>
+			<td align="center" colspan=2><input type="submit" name="submit" class="btn btn-primary" value="SUBMIT"></td>
+		</tr>
+	</table>
+	
+</form>
+  </div>
+
+      </div>
+    </div>
+  </section><!-- End Hero -->
+{% include 'footer.html' %}

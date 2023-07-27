@@ -1,0 +1,36 @@
+{% include 'provider_header.html' %}
+<div style=" background:url('/static/images/fly2.jpg') ; height: 300px; width: 100%; background-size: cover;"  >
+	</div>
+
+<center>
+<form method="post">
+	<h2>Enquiries</h2>
+	<table class="table table-striped" style="width: 1000px; background: wheat;">
+		<tr>
+			<th>#</th>
+			<th>Customer Name</th>
+			<th>Enquiries</th>
+			<th>Date</th>
+			<th>reply</th>
+		</tr>
+		{% for row in data['view'] %}
+		<tr>
+			<td>{{loop.index}}</td>
+			<td>{{row['customer_fname']}} {{row['customer_lname']}}</td>
+			<td>{{row['enquiry_details']}}</td>
+			<td>{{row['datetime']}}</td>
+			
+			{% if row['reply_details'] == "pending" %}
+	
+
+				<td><input type="text" name="reply_details{{loop.index}}"><input type="submit" name="submit{{loop.index}}" value="submit" class="btn"></td>
+				{% else %}
+				<td>{{row['reply_details']}}</td>
+				{% endif %}
+
+		</tr>
+		{% endfor %}
+	</table>
+</form>
+</center>
+{% include 'footer.html' %}

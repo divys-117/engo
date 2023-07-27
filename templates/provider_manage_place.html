@@ -1,0 +1,120 @@
+{% include 'provider_header.html' %}
+
+
+<div style=" background:url('/static/images/fly2.jpg') ; height: 300px; width: 100%; background-size: cover;"  >
+	</div>
+	<center>
+<form method="post" enctype="multipart/form-data">
+	<h2>Place details</h2>
+	<table class="table table-striped table-hover" style="width: 1000px; background: wheat;">
+		<!-- <tr>
+			<th>Place Category</th>
+			<td>
+				<select name="pcat" class="form-control" required>
+					<option>select</option>
+					{% for i in data['place_category'] %}
+					<option value="{{i['category_id']}}">{{i['category_name']}}</option>
+					{% endfor %}
+				</select>
+			</td>
+		</tr> -->
+		<tr>
+			<th>Place Category</th>
+			<td><input type="radio" name="pcat" value="travelling" >Travelling
+			<!-- <input type="radio" name="pcat" value="travelling" >Travelling -->
+		<input type="radio" name="pcat" value="Hiking" >Hiking
+		<input type="radio" name="pcat" value="Boating" >Boating
+		<input type="radio" name="pcat" value="Adventurous" >Adventurous
+		<input type="radio" name="pcat" value="Trecking" >Trecking
+		<input type="text" name="pcat" placeholder="others" ></td>
+		</tr>
+		<tr>
+			<th>Place Name</th>
+			<td><input type="text" name="pname" value="{% if data['uplace'] %}{{data['uplace'][0]['place_name']}}{% endif %}" required class="form-control"></td>
+			
+		</tr>
+		<tr>
+			<th>Description</th>
+			<td><input type="text" name="discriptionxxxx"  required class="form-control"></td>
+		</tr>
+		<tr>
+			<th>Image</th>
+			<td><input type="file" name="proimg" value="{% if data['uplace'] %}{{data['uplace'][0]['image']}}{% endif %}" class="form-control"></td>
+		</tr>
+		<tr>
+				    <th>Latitude</th>
+        <td><input type="text" name="lat"  class="form-control" id="lat" value=" {% if data['uplace'] %} {{data['uplace'][0]['latitude']}} {% endif %}">
+        <a class="btn btn-success" onclick="myFunction();"><b>View Map</b></a>
+        </td>
+		</tr>
+		
+		<tr>
+			<th>Longitude</th>
+                        <td ><br><input type="text" name="lon"  class="form-control" id="lon" value=" {% if data['uplace'] %} {{data['uplace'][0]['longitude']}} {% endif %}"></td>
+		</tr>
+		{% if data['uplace'] %}
+		<tr>
+			<td colspan="2" align="center"><input type="submit" class="btn btn-warning" name="updplace" value="UPDATE"></td>
+		</tr>
+		{% else %}
+		<tr>
+			<td colspan="2" align="center"><input type="submit" class="btn btn-success" name="place" value="ADD"></td>
+		</tr>
+		{% endif %}
+
+	</table>
+	<tr>
+					<div id="dvMap" style="width: 450px; height: 400px"></div>
+				</tr>
+
+
+				<table class="table table-striped table-hover" style="width: 1000pz; background: wheat;">
+					<tr>
+						
+						<th>#</th>
+						<th>Place</th>
+						<th>Description</th>
+						<th>Image</th>
+					</tr>
+					{% for i in data['view'] %}
+					<tr>
+						<td>{{loop.index}}</td>
+						<td>{{i['place_name']}}</td>
+						<td>{{i['description']}}</td>
+						<td><a href="/{{i['image']}} "><img src="/{{i['image']}} " width="150px" height="150px"></a></td>
+						<td><a href="?action=remove&place_id={{i['place_id']}}">Remove</a></td>
+					</tr>
+					{% endfor %}
+					</table>
+</form>
+</center>
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD3MPnSnyWwNmpnVEFkaddVvy_GWtxSejs&sensor=false"></script>
+    <script type="text/javascript">
+        // window.onload = function () {
+          function myFunction(){
+            var mapOptions = {
+                center: new google.maps.LatLng(9.9763482, 76.286272),
+                zoom: 14,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var infoWindow = new google.maps.InfoWindow();
+            var latlngbounds = new google.maps.LatLngBounds();
+            var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+            google.maps.event.addListener(map, 'click', function (e) {
+                alert("Latitude: " + e.latLng.lat() + "\r\nLongitude: " + e.latLng.lng());
+              document.getElementById('lat').value = e.latLng.lat();
+                document.getElementById('lon').value = e.latLng.lng();
+           
+
+            });
+        }
+    </script>
+{% include 'footer.html' %}

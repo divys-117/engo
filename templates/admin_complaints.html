@@ -1,0 +1,37 @@
+{% include 'admin_header.html' %}
+<div style=" background:url('/static/images/fly1.jpg') ; height: 300px; width: 100%; background-size: cover;"  >
+	</div>
+
+<center>
+<form method="post">
+	
+	<table class="table table-striped" style="width: 1000px; background: wheat;">
+		<h2 style="color: goldenrod;">Complaints</h2>
+		<tr>
+			<th>#</th>
+			<th>Customer Name</th>
+			<th>Complaint</th>
+			<th>Date</th>
+			<th>reply</th>
+		</tr>
+		{% for row in data['view'] %}
+		<tr>
+			<td>{{loop.index}}</td>
+			<td>{{row['first_name']}} {{row['last_name']}}</td>
+			<td>{{row['complaint']}}</td>
+			<td>{{row['datetime']}}</td>
+			
+			{% if row['reply'] == "pending" %}
+	
+
+				<td><input type="text" name="reply{{loop.index}}"><input type="submit" name="submit{{loop.index}}" value="submit" class="btn" class="btn btn-secondary"></td>
+				{% else %}
+				<td>{{row['reply']}}</td>
+				{% endif %}
+
+		</tr>
+		{% endfor %}
+	</table>
+</form>
+</center>
+{% include 'footer.html' %}

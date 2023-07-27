@@ -1,0 +1,51 @@
+{%include 'userheader.html'%}
+
+	
+
+<div style=" background:url('/static/images/fly2.jpg') ; height: 300px; width: 100%; background-size: cover;"  >
+	</div>	
+	<center>
+		<form method="post" enctype="multipart/form-data" style="margin-top: 2rem;">
+
+		<table class="table" style="width:  500px;">
+			<h1>ENQUIRIES</h1>
+			
+			<tr>
+				<th>ENQYUIRY</th>
+				<td><input type="text" required="" name="enq" required="" class="form-control"></td>
+			</tr>
+			
+		<tr>
+			<td colspan="2" align="center"><input type="submit" name="submit" value="ADD" class="btn btn-primary"></td>
+		</tr>
+</table></form></center>
+
+	<center>	
+		<h1>ENQUIRIES ADDED </h1>
+		<table class="table" style="width: 500px;" >
+			<tr>
+				<th>SL.NO</th>
+				<th>ENQUIRIES DESCRIPTION</th>
+				<th>REPLY</th>
+				<th>DATE</th>
+		
+			
+			</tr>
+			{% for row in data['user'] %}
+			<tr>
+				<td>{{loop.index}}</td>
+				<td>{{row['enquiry_details']}}</td>
+				<td>{{row['reply_details']}}</td>
+				<td>{{row['datetime']}}</td>			
+				
+			</tr>
+			{% endfor%}
+		</table>
+		
+		
+	
+		
+	</form>
+</center>
+
+{%include 'footer.html'%}

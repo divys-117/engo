@@ -1,0 +1,40 @@
+{% include 'admin_header.html' %}
+<div style=" background:url('/static/images/fly1.jpg') ; height: 300px; width: 100%; background-size: cover;"  >
+	</div>
+<center>
+<form method="post">
+	<h2>Tour Provider Details</h2>
+	<table class="table table-striped table-hover" style="width: 1000px; background: wheat;">	
+		<tr>
+			<th>#</th>
+			<th>Provider Name</th>
+			<th>Place</th>
+			<th>District</th>
+			<th>Pincode</th>
+			<th>Phone</th>
+			<th>Email</th>
+			<th></th>
+			<th></th>
+		</tr>
+		{% for i in data['view'] %}
+		<tr>
+		<td>{{loop.index}}</td>
+		<td>{{i['provider_name']}}</td>
+		<td>{{i['provider_place']}}</td>
+		<td>{{i['district']}}</td>
+		<td>{{i['pincode']}}</td>
+		<td>{{i['email']}}</td>
+		<td>{{i['phone']}}</td>
+
+		
+		{% if i ['user_type']=='pending' %}
+
+		<td><a href="?action=accept&log_id={{i['login_id']}}">Accept</a></td>
+		<td><a href="?action=reject&log_id={{i['login_id']}}">Reject</a></td>
+		{% endif %}
+		</tr>
+		{% endfor %}
+	</table>
+</form>
+</center>
+{% include 'footer.html' %}

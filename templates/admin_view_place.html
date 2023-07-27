@@ -1,0 +1,31 @@
+{% include 'admin_header.html' %}
+<div style=" background:url('/static/images/fly1.jpg') ; height: 300px; width: 100%; background-size: cover;"  >
+	</div>
+<center>
+<form method="post">
+	<h2>Place Details</h2>
+	<table class="table table-striped table-hover" style="width: 1000px; background: wheat;">
+		<tr>
+			<th>Index</th>
+			<th>Category Name</th>
+			<th>Place Name</th>
+			<th>Discription</th>
+			<th>Image</th>
+			<th>Location</th>
+		</tr>
+		{% for i in data['view'] %}
+		<tr>
+			<td>{{loop.index}}</td>
+			<td>{{i['category_name']}}</td>
+			<td>{{i['place_name']}}</td>
+			<td>{{i['description']}}</td>
+			<td><a href="/{{i['image']}}"><img src="/{{i['image']}}" width="150px" height="150px"></a></td>
+			<td><a class="btn btn-primary" href="http://www.google.com/maps?q={{i['latitude'] }},{{i['longitude']}}">Location </a></td>
+
+		</tr>
+		{% endfor %}
+		
+	</table>
+</form>
+</center>
+{% include 'footer.html' %}

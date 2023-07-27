@@ -1,0 +1,114 @@
+{% include 'userheader.html' %}
+
+<div class="chat">
+    <div class="smchat">
+   
+        <div class="topsec" id="top">
+
+            <table >
+
+                {% for row in data['ress'] %}
+                 
+                {% if row['sender_ids'] == data['uid'] %}
+
+
+                <tr align="right">
+                    <th>{{row['message']}}</th>
+                </tr>
+                {% else %}
+               
+                <tr align="left">
+                    <th>{{row['message']}}</th>
+                </tr>
+                {% endif %}
+                {% endfor %}
+               
+              
+
+            </table>
+
+        </div>
+        <form action="" method="post">
+        <table class="tt">
+            <tr>
+           
+                <td><input class="inp" type="text" name="txt" placeholder="Enter your Message Here"  ></td>
+                <td><input class="inp2" type="submit" name="btn" value="Confirm" ></td>
+            </tr>
+        </table>
+    </form>
+        
+    </div>
+</div>
+
+
+<style>
+    .chat{
+        height: 100vh;
+        align-items: center;
+        text-align: center;
+        display: flex;
+      
+        justify-content: center;
+        width: 100%;
+        background-color: rgb(211, 210, 209);
+    }
+    .smchat{
+        width: 420px;
+        height: 80vh;
+        margin-top: 115px;
+        background-color: #fff;
+        border-radius: 8px;
+        
+    }
+    .topsec{
+        width: 420px;
+        height: 72vh;
+        background-color: rgb(213, 213, 215);
+        opacity: .5;
+        overflow-y: scroll;
+    }
+    .topsec::-webkit-scrollbar{
+        overflow: hidden;
+    }
+    .tt{
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        display: flex;
+        height: 8vh;
+    }
+
+    .inp{
+        width: 327px;
+        height: 50px;
+        border: none;
+        border-radius: 15px;
+        text-align: center;
+    }
+    .inp2{
+        background-color: rgb(194, 193, 192);
+        border-radius: 6px;
+        color: white    ;
+        border: none;
+        height: 40px;
+        width: 90px;
+        font-family: cursive;
+        font-weight: 600;
+    }
+    .inp2:hover{
+        background-color: grey;
+        color: black;
+    }
+    table tr th{
+       padding: 30px;
+        padding-top: 30px;
+       
+        width: 600px;
+    }
+</style>
+<script>
+    let scroll_to_bottom = document.getElementById('top');
+    scroll_to_bottom.scrollTop = scroll_to_bottom.scrollHeight;
+</script>
+{% include 'footer.html' %}

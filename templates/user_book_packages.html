@@ -1,0 +1,50 @@
+{% include 'userheader.html' %}
+
+
+<div style=" background:url('/static/images/fly2.jpg') ; height: 300px; width: 100%; background-size: cover;"  >
+	</div>
+	<script type="text/javascript">
+	function TextOnTextChange()
+	{
+		var x =document.getElementById("p_amount").value;
+		var y =document.getElementById("p_qnty").value;
+		document.getElementById("t_amount").value = x * y;
+	}
+
+</script> 
+	<center>
+<form method="post" enctype="multipart/form-data">
+	<h2>Book</h2>
+	<table class="table table-striped table-hover" style="width: 1000px; background: wheat;">
+		
+		<tr>
+			<th>Amount</th>
+			<td><input type="text" name="amt" value="{{data['amt']}}" readonly="" id="p_amount" required class="form-control"></td>
+			
+		</tr>
+		<tr>
+			<th>Quantity</th>
+			<td><input type="text" name="qty" id="p_qnty" onchange="TextOnTextChange()" required class="form-control"></td>
+		</tr>
+		<tr>
+			<th>Tour Date</th>
+			<td><input type="date" name="tdate" required class="form-control"></td>
+			
+		</tr>
+		<tr>
+			<th>Total_Amount</th>
+			<td><input type="text" name="tamt"  id="t_amount" required class="form-control"></td>
+		</tr>
+		<tr>
+			<td><input type="submit" name="submit"  required class="form-control"></td>
+		</tr>
+		
+				
+
+</table>
+</form>
+</center>
+
+
+
+{% include 'footer.html' %}

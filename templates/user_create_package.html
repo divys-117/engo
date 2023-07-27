@@ -1,0 +1,81 @@
+
+{% include 'userheader.html' %}
+
+<div style=" background:url('/static/images/fly2.jpg') ; height: 300px; width: 100%; background-size: cover;"  >
+	</div>
+<center>
+<form method="post">
+	<h2>Tour Package</h2>
+	<table class="table table-striped" style="width: 1000px; background: wheat;">
+
+		<tr>
+			<th>Place Name</th>
+			<td>
+				<select name="place_id" class="form-control" required>
+					<option>select</option>
+					{% for i in data['place_name'] %}
+					<option value="{{i['place_id']}}">{{i['place_name']}}</option>
+					{% endfor %}
+				</select>
+			</td>
+		</tr>
+		<tr>
+		<th>Description</th>
+		<td><input type="text" name="des" required class="form-control" value=""></td>
+		</tr>
+		<tr>
+		<th>No.of.People</th>
+		<td><input type="text" name="nop" required class="form-control" value=""></td>
+		</tr>
+		<tr>
+		<th>Mode of traveling</th>
+		<td><input type="text" name="mode" required class="form-control" value=""></td>
+		</tr>
+		
+		<tr>
+			<th>Affordable Price</th>
+				<td>
+					<input type="text" name="price" required class="form-control" value="">
+				</td>
+		</tr>
+		<!-- <tr>
+			<th>Place</th>
+				<td>
+					<input type="text" name="place" class="form-control" required value="">
+				</td>
+		</tr> -->
+		
+		<tr>
+			<td colspan="2" align="center"><input type="submit" class="btn btn-success" name="submit" value="ADD"></td>
+		</tr>
+		
+	</table>
+
+	<table class="table table-striped table-hover" style="width: 1000px; background: wheat;">
+	<tr>
+		<th>#</th>
+		<th>Place Name</th>
+		<th>Description</th>
+		<th>No of People</th>
+		<th>Mode of Travelling</th>
+		<th>Prize Affordable</th>
+		<th>No.of Days</th>
+		<th>Status</th>
+	</tr>	
+	{%for i in data['view']%}
+	<tr>
+		<td>{{loop.index}}</td>
+		<td>{{i['place_name']}}</td>
+		<td>{{i['description']}}</td>
+		<td>{{i['no_of_people']}}</td>
+		<td>{{i['mode_of_traveling']}}</td>
+		<td>{{i['affordable_price']}}</td>
+		<td>{{i['no_of_days']}}</td>
+		<td>{{i['status']}}</td>
+		<!-- <td><a href="?action=remove&pac_id={{i['package_id']}}">Remove</a></td> -->
+	</tr>
+	{% endfor %}
+	</table>
+</form>
+</center>
+{% include 'footer.html' %}

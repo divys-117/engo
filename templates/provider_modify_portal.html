@@ -1,0 +1,50 @@
+{%include 'provider_header.html'%}
+
+	
+
+<div style=" background:url('/static/images/fly2.jpg') ; height: 300px; width: 100%; background-size: cover;"  >
+	</div>	
+	<center>
+		<form method="post" enctype="multipart/form-data" style="margin-top: 2rem;">
+
+		<table class="table" style="width:  500px;">
+			<h1>USER PORTAL</h1>
+			
+			<tr>
+				<th>USERNAME</th>
+				<td><input type="text" required="" name="place" value="{{data['up'][0]['first_name'] }} {{data['up'][0]['last_name'] }} " disabled required="" class="form-control"></td>
+			</tr>
+			<tr>
+				<th>PLACE</th>
+				<td><input type="text" required="" disabled name="place" value="{{data['up'][0]['port_place']}}" required="" class="form-control"></td>
+			</tr>
+			<tr>
+				<th>DESCRIPTION</th>
+				<td><input type="text" required="" disabled name="desi" value="{{data['up'][0]['port_desc']}}" required="" class="form-control"></td>
+			</tr>
+			<tr>
+				<th>NO OF PEOPLE</th>
+				<td><input type="text" required="" disabled name="people" value="{{data['up'][0]['port_people']}}" required="" class="form-control"></td>
+
+			</tr>
+			<tr>
+				<th>MODE OF TRAVEL</th>
+				<td><input type="text" required="" name="travel" disabled value="{{data['up'][0]['mode_of_travel']}}"  required="" class="form-control"></td>
+			</tr>
+			<tr>
+				<th>PRICE</th>
+				<td><input type="text" required=""  name="price" disabled value="{{data['up'][0]['port_price']}}" required=""  class="form-control"></td>
+			</tr>
+			<tr>
+				<th>MODIFYPRICE</th>
+				<td><input type="text" required=""  name="price" value="{{data['up'][0]['modified_price']}}" required=""  class="form-control"></td>
+			</tr>
+			
+		<tr>
+			<td colspan="2" align="center"><input type="submit" name="submit" value="ADD" class="btn btn-primary"></td>
+		</tr>
+</table></form></center>
+
+	
+
+{%include 'footer.html'%}
